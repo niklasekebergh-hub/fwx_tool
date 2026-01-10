@@ -2,6 +2,7 @@ pub struct Magic {
     pub filetype: &'static str,
     pub offset: usize,
     pub value: &'static [u8],
+    pub validate: Option<fn(data: &[u8], off: usize) -> bool>, 
 }
 
 static MAGIC_NUMBERS: &[Magic] = &[
