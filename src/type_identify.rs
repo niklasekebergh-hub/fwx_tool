@@ -10,6 +10,7 @@ static MAGIC_NUMBERS: &[Magic] = &[
         filetype: "U-Boot uImage",
         offset: 0,
         value: &[0x27, 0x05, 0x19, 0x56],
+        validate: None,
     },
     Magic {
         filetype: "Flattened Device Tree Blob (FDTB)",
@@ -24,7 +25,8 @@ static MAGIC_NUMBERS: &[Magic] = &[
     Magic {
         filetype: "Android boot image",
         offset: 0,
-        value: &[0x41, 0x4e, 0x44, 0x52, 0x4f, 0x49, 0x44, 0x21]
+        value: &[0x41, 0x4e, 0x44, 0x52, 0x4f, 0x49, 0x44, 0x21],
+        validate: None,
     },
     Magic {
         filetype: "Intel HEX",
@@ -59,12 +61,14 @@ static MAGIC_NUMBERS: &[Magic] = &[
     Magic {
         filetype: "bzip2",
         offset: 0,
-        value: &[0x42, 0x5a, 0x68]
+        value: &[0x42, 0x5a, 0x68],
+        validate: None,
     },
     Magic {
         filetype: "xz",
         offset: 0,
-        value: &[0xfd, 0x37, 0x7a, 0x58, 0x5a, 0x00]
+        value: &[0xfd, 0x37, 0x7a, 0x58, 0x5a, 0x00],
+        validate: None,
     },
     Magic {
         filetype: "LZMA",
@@ -74,12 +78,14 @@ static MAGIC_NUMBERS: &[Magic] = &[
     Magic {
         filetype: "LZ4",
         offset: 0,
-        value: &[0x04, 0x22, 0x4d, 0x18]
+        value: &[0x04, 0x22, 0x4d, 0x18],
+        validate: None,
     },
     Magic {
         filetype: "Zstandard",
         offset: 0,
-        value: &[0x28, 0xb5, 0x2f, 0xfd]
+        value: &[0x28, 0xb5, 0x2f, 0xfd],
+        validate: None,
     },
     Magic {
         filetype: "SquashFS",
@@ -99,7 +105,8 @@ static MAGIC_NUMBERS: &[Magic] = &[
     Magic {
         filetype: "UBI EC header",
         offset: 0,
-        value: &[0x55, 0x42, 0x49, 0x23]
+        value: &[0x55, 0x42, 0x49, 0x23],
+        validate: None,
     },
     Magic {
         filetype: "UBIFS",
@@ -109,7 +116,8 @@ static MAGIC_NUMBERS: &[Magic] = &[
     Magic {
         filetype: "tar",
         offset: 257,
-        value: &[0x75, 0x73, 0x74, 0x61, 0x72, 0x00]
+        value: &[0x75, 0x73, 0x74, 0x61, 0x72, 0x00],
+        validate: None,
     },
     Magic {
         filetype: "zip",
@@ -122,36 +130,48 @@ static MAGIC_NUMBERS: &[Magic] = &[
         value: &[0x50, 0x4b, 0x05, 0x06]
     },
     Magic {
+        filetype: "zip",
+        offset: 0,
+        value: &[0x50, 0x4b, 0x07, 0x08]
+    },
+    Magic {
         filetype: "7z",
         offset: 0,
-        value: &[0x37, 0x7a, 0xbc, 0xaf, 0x27, 0x1c]
+        value: &[0x37, 0x7a, 0xbc, 0xaf, 0x27, 0x1c],
+        validate: None,
     },
     Magic {
         filetype: "ELF",
         offset: 0,
-        value: &[0x7f, 0x45, 0x4c, 0x46]
+        value: &[0x7f, 0x45, 0x4c, 0x46],
+        validate: None,
     },
     Magic {
         filetype: "PE/COFF",
         offset: 0,
-        value: &[0x4d, 0x5a]
+        value: &[0x4d, 0x5a],
+        validate: None,
     },
     Magic {
         filetype: "Mach-O",
         offset: 0,
-        value: &[0xfe, 0xed, 0xfa, 0xce]
+        value: &[0xfe, 0xed, 0xfa, 0xce],
+        validate: None,
     },  Magic {
         filetype: "Mach-O",
         offset: 0,
-        value: &[0xce, 0xfa, 0xed, 0xfe]
+        value: &[0xce, 0xfa, 0xed, 0xfe],
+        validate: None,
     }, Magic {
         filetype: "Mach-O",
         offset: 0,
-        value: &[0xfe, 0xed, 0xfa, 0xcf]
+        value: &[0xfe, 0xed, 0xfa, 0xcf],
+        validate: None,
     },  Magic {
         filetype: "Mach-O",
         offset: 0,
-        value: &[0xcf, 0xfa, 0xed, 0xfe]
+        value: &[0xcf, 0xfa, 0xed, 0xfe],
+        validate: None,
     },
     Magic {
         filetype: "DER/ASN.1",
